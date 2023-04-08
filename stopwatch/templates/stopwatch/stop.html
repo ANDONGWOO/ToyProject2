@@ -2,7 +2,11 @@
 {% load django_bootstrap5 %}
 
 {% block body %}
-  <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
+  {% comment %} <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">정지</button>
-  </a>
+  </a> {% endcomment %}
+  <form action="{% url 'stopwatch:stop' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="정지">
+  </form>
 {% endblock %}
