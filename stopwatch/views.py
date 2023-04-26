@@ -11,7 +11,7 @@ def index(request):#시작
     #     is_running=True#DB추가 기본 False
     #     start_time =time.time()
     #     print(start_time)
-    return render(request, "stopwatch/stop.html")
+    return render(request, "stopwatch/index.html")
 def stop(request):
     # is_running = False#DB추가 
-    return render(request, "stopwatch/index.html")
+    return render(request, "stopwatch/stop.html")
