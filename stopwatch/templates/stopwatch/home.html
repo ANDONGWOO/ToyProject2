@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,19 +12,23 @@
     {% block css %}{% endblock css %}
   </head>
 
-  <body>
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <div>
-        <div class="d-flex flex-column">
-          <input type="text">
-          <input type="password">
-          <button type="button" class="btn btn-primary w-50 h-50">로그인</button>
-          <a href="{% url "accounts:create" %}">회원가입</a>
-          <!-- 바로 시작으로 이동 -->
-        </div>
+  {% block body %}
+    <form action="{% url 'accounts:login' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="ID">
+        <label for="floatingInput">ID</label>
       </div>
-    </div>
-    {% bootstrap_javascript %}
-  </body>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+      </div>
+    </form>
+    <a href="{% url "accounts:create" %}">회원가입</a>
+    <!-- 바로 시작으로 이동 -->
+  {% endblock body %}
 
 </html>
