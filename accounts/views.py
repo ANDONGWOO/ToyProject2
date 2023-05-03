@@ -10,7 +10,7 @@ def create(request):#회원가입
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('home')
+            return redirect('stopwatch:index')
     else:
         form = CustomUserCreationForm()
     context={
