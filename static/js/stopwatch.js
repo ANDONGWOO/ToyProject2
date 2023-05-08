@@ -3,21 +3,28 @@ var end;
 var end_time;
 var start_now;
 
-function test1() {
-    start = new Date().getTime();
-    // start_now=new Date();
-    //start-start_now 화면에서 보여주기
-}
-function test2() {
-    end = new Date();
-    end_time = new Date(end-start);
-    min = end_time.getMinutes()
-    sec = end_time.getSeconds()
-    milisec = end_time.getMilliseconds()
+// function test1() {
+//     console.log(1)
+//     start = Date().now();
+//     // start_now=new Date();
+//     //start-start_now 화면에서 보여주기
+// }
 
-    document.getElementById("testM").innerText =min
-    document.getElementById("tests").innerText =sec
-    document.getElementById("testm").innerText =milisec
+function test2() {
+    console.log(2)
+    end = Date().now();
+    end_time = end-start;
+    console.log(end_time)
+    // min = end_time.getMinutes()
+    // sec = end_time.getSeconds()
+    // milisec = end_time.getMilliseconds()
+
+    console.log(min)
+    console.log(sec)
+    console.log(milisec)
+    // document.getElementById("testM").innerText =min
+    // document.getElementById("tests").innerText =sec
+    // document.getElementById("testm").innerText =milisec
 }
 
 // function test3(){
