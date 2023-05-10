@@ -6,17 +6,25 @@
   {% comment %} <a href="{% url "stopwatch:stop" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">시작</button>
   </a> {% endcomment %}
-  <a href="{% url 'stopwatch:stop' %}"><button type="button" id="test1">시작</button></a>
+  <a href="{% url 'stopwatch:stop' %}"><button type="button" id="test1" onclick="test0(); test3();">시작</button></a>
     <p id="start"></p>
   <!-- 스톱워치 이동 -->
+  <!-- 함수 두개 -->
+  {% comment %} onclick="test0(); test3();" {% endcomment %}
 {% endblock %}
 {% block script %}
 <script>
-    document.getElementById("test1").onclick=function (){//클릭시 함수실행
-        var start = new Date().getTime();
-        document.getElementById("start").innerText=start;//변수 start에서 출력
-        // paragraph = Element("start")
-        // paragraph.write(start)
+    function test0(){//클릭시 함수실행
+      console.log(0)
+      var start1 = new Date().getTime();
+      document.getElementById("start").innerText=start1;//변수 start에서 출력
+      console.log(start1)
+    };
+    function test3(){
+      console.log(1)
+      let start2= new Date().getTime();
+      setInterval(() => console.log(++start2), 1000);
+      console.log(2)
     };
 </script>
 {% endblock script %}

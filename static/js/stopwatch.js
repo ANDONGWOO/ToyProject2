@@ -12,16 +12,16 @@ var start_now;
 
 function test2() {
     console.log(2)
-    end = Date().now();
+    end = new Date().getTime();
     end_time = end-start;
     console.log(end_time)
     // min = end_time.getMinutes()
     // sec = end_time.getSeconds()
     // milisec = end_time.getMilliseconds()
 
-    console.log(min)
-    console.log(sec)
-    console.log(milisec)
+    // console.log(min)
+    // console.log(sec)
+    // console.log(milisec)
     // document.getElementById("testM").innerText =min
     // document.getElementById("tests").innerText =sec
     // document.getElementById("testm").innerText =milisec
