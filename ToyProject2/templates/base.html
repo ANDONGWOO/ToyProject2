@@ -17,20 +17,20 @@
     <nav class="navbar bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">000</a>
-        <ul>
-          {% if request.user.is_authenticated %}
-            <li>
-              <a class="navbar-brand fw-bold" href="{% url 'accounts:logout' %}">로그아웃</a>
-            </li>
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'accounts:logout' %}">{{ user.username }}(로그아웃)</a>
           {% else %}
-            <li>
-              <a class="navbar-brand fw-bold" href="{% url 'home' %}">로그인</a>
-            </li>
-            <li>
-              <a class="navbar-brand fw-bold" href="{% url 'accounts:create' %}">회원가입</a>
-            </li>
+            <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
+            <!-- 0 -->
           {% endif %}
-        </ul>
+        </li>
+        <li>
+          {% if not user.is_authenticated %}
+            <a class="nav-link" href="{% url 'accounts:create' %}">회원가입</a>
+            <!-- 0 -->
+          {% endif %}
+        </li>
       </div>
     </nav>
     <div class="container">

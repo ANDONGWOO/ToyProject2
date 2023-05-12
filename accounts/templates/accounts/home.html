@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block body %}
+  <form action="{% url 'accounts:login' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">로그인</button>
+  </form>
+  <a href="{% url "accounts:create" %}">회원가입</a>
+  <!-- 바로 시작으로 이동 -->
+{% endblock body %}
