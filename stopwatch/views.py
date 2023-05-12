@@ -14,5 +14,15 @@ def index(request):#경과시간
     return render(request, "stopwatch/index.html")
 
 def stop(request):
-    # is_running = False#DB추가 
+    # is_running = False#DB추가
+    print(1)
+    print(request.POST)
+    if request.method =="POST":
+        print(1)
+        print(request.POST)
+        form= form(request.POST)
+        print(request.POST)
+        print(1)
+        if form.is_valid():
+            print(request.POST)
     return render(request, "stopwatch/stop.html")

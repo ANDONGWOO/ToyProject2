@@ -6,10 +6,35 @@
   {% comment %} <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">정지</button>
   </a> {% endcomment %}
-  <a href="{% url 'stopwatch:index' %}"><button onclick="test2()" type="button">정지</button></a>
-  <div>
+  <form action="{% url 'stopwatch:stop' %}" method="POST">
+    {% csrf_token %}
+    <button onclick="test2()" type="submit" >정지</button>
+    <input type="text" id="start">
+  </form>
+  {% comment %} <div>
     <span id="testM">00</span>
     <span id="tests">00</span>
     <span id="testm">00</span>
-  </div>
+  </div> {% endcomment %}
 {% endblock %}
+{% block script %}
+<script>
+  var start1;
+  //startInterval()
+  function startInterval() {
+    setInterval(test0, 1000);
+  }
+  function test0(){//클릭시 함수실행
+    var start1 = new Date().getTime();
+    document.getElementById("start").value=start1;//변수 start에서 출력
+    console.log(start1)
+  };
+  window.addEventListener('unload', function(event) {
+    console.log(2)
+    end = new Date().getTime();
+    end_time = end-start1;
+    console.log(start1)
+    console.log(end_time)
+  });
+</script>
+{% endblock script %}
