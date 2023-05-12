@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 import time
+from .forms import test
+from accounts.models import User
 # Create your views here.
 
 
@@ -16,13 +18,19 @@ def index(request):#경과시간
 def stop(request):
     # is_running = False#DB추가
     print(1)
-    print(request.POST)
     if request.method =="POST":
-        print(1)
-        print(request.POST)
-        form= form(request.POST)
-        print(request.POST)
-        print(1)
+        print(2)
+        form=test(request.POST)
+        print(form)
+        print(3)
+        ##3까지
         if form.is_valid():
-            print(request.POST)
-    return render(request, "stopwatch/stop.html")
+            form.save()
+            print(4)
+        return redirect('stopwatch:index')
+    else:
+        form = test()
+    context={
+        "form": form
+    }
+    return render(request, "stopwatch/stop.html",context)
