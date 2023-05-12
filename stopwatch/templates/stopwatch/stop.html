@@ -9,7 +9,7 @@
   <form action="{% url 'stopwatch:stop' %}" method="POST">
     {% csrf_token %}
     <button onclick="test2()" type="submit">정지</button>
-    <input type="text" id="start">
+    <input type="text" id="start" style="border:none">
   </form>
   {% comment %} <div>
     <span id="testM">00</span>
