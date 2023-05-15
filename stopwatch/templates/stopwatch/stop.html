@@ -6,10 +6,12 @@
   {% comment %} <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">정지</button>
   </a> {% endcomment %}
-  <form action="{% url 'stopwatch:stop' %}" method="POST">
+  <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
     {% csrf_token %}
-    <button onclick="test2()" type="submit">정지</button>
-    <input type="text" id="start" style="border:none">
+    <button onclick="test2()" type="submit" class="btn btn-primary btn-lg">정지</button>
+    <div>
+      <input type="text" id="start" style="border:none">
+    </div>
   </form>
   {% comment %} <div>
     <span id="testM">00</span>

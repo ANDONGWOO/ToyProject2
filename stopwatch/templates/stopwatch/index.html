@@ -6,8 +6,13 @@
   {% comment %} <a href="{% url "stopwatch:stop" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">시작</button>
   </a> {% endcomment %}
-  <a href="{% url 'stopwatch:stop' %}"><button type="button" id="test1" onclick="startInterval();">시작</button></a>
-    <p id="start"></p>
+  <div style=" text-align: center";>
+    <a href="{% url 'stopwatch:stop' %}">
+      <button type="button" id="test1" onclick="startInterval();" class="btn btn-primary btn-lg" style="height:200 pxwidth:200px border-radius:100px">
+        시작
+      </button>
+    </a>
+  </div>
   <!-- 스톱워치 이동 -->
   <!-- 함수 두개 -->
   {% comment %} onclick="test0(); test3();" {% endcomment %}
