@@ -16,14 +16,19 @@
   <body>
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid ">
-        <a class="navbar-brand text-light" href="{% url 'home' %}">000</a>
+        {% if user.is_authenticated %}
+          <a class="navbar-brand text-light" href="{% url 'stopwatch:index' %}">000</a>
+          <!-- 시작으로 -->
+          <!-- 함수실행(startInterval) 상태시 수정x -->
+        {% else %}
+          <a class="navbar-brand text-light" href="{% url 'home' %}">000</a>
+        {% endif %}
         <li class="nav-item">
           {% if user.is_authenticated %}
             <a class="nav-link text-light" href="{% url 'accounts:logout' %}">{{ user.username }}(로그아웃)</a>
           {% else %}
             <a class="nav-link text-light" href="{% url 'accounts:login' %}">로그인</a>
             <a class="nav-link text-light" href="{% url 'accounts:create' %}">회원가입</a>
-            <!-- 0 -->
           {% endif %}
         </li>
       </div>
