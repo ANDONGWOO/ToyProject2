@@ -8,7 +8,7 @@
   </a> {% endcomment %}
   <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
     {% csrf_token %}
-    <button onclick="test2()" type="submit" class="btn btn-primary btn-lg">정지</button>
+    <button onclick="test2()" type="submit" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">정지</button>
     <div>
       <input type="text" id="start" style="border:none">
     </div>
