@@ -10,7 +10,7 @@
     {% csrf_token %}
     <button onclick="test2()" type="submit" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">정지</button>
     <div>
-      <input type="text" id="start" style="border:none">
+      <input type="text" id="start" name="end_time" style="border:none">
     </div>
   </form>
   {% comment %} <div>
@@ -22,7 +22,7 @@
 {% block script %}
 <script>
   var start1;
-  //startInterval()
+  startInterval()
   function startInterval() {
     setInterval(test0, 1000);
   }

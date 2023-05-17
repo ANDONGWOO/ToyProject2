@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import time
-from .forms import test
+from .forms import testForm
 from accounts.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -17,19 +17,14 @@ def index(request):#경과시간
 @login_required
 def stop(request):
     # is_running = False#DB추가
-    print(1)
     if request.method =="POST":
-        print(2)
-        form=test(request.POST)
-        print(form)
-        print(3)
-        ##3까지
+        form=testForm(request.POST)
+        ##3까지"
         if form.is_valid():
             form.save()
-            print(4)
         return redirect('stopwatch:index')
     else:
-        form = test()
+        form = testForm()
     context={
         "form": form
     }
