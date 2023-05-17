@@ -10,7 +10,7 @@
     {% csrf_token %}
     <button onclick="test2()" type="submit" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">정지</button>
     <div>
-      <input type="text" id="start" name="end_time" style="border:none">
+      <input type="number" id="start" name="end_time" style="border:none">
     </div>
   </form>
   {% comment %} <div>
@@ -22,14 +22,17 @@
 {% block script %}
 <script>
   var start1;
+  var end_time=0;//경과시간
   startInterval()
   function startInterval() {
     setInterval(test0, 1000);
   }
   function test0(){//클릭시 함수실행
     var start1 = new Date().getTime();
-    document.getElementById("start").value=start1;//변수 start에서 출력
+    document.getElementById("start").value=end_time;//변수 start에서 출력
     console.log(start1)
+    end_time++;
+    console.log(end_time)
   };
   window.addEventListener('unload', function(event) {
     console.log(2)

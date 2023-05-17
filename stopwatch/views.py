@@ -19,7 +19,6 @@ def stop(request):
     # is_running = False#DB추가
     if request.method =="POST":
         form=testForm(request.POST)
-        ##3까지"
         if form.is_valid():
             form.save()
         return redirect('stopwatch:index')

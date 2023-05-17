@@ -4,4 +4,4 @@ from django.db import models
 
 
 class test(models.Model):
-    end_time=models.CharField(max_length=200)
+    end_time=models.IntegerField()
