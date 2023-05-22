@@ -9,7 +9,7 @@
   <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
     {% csrf_token %}
     <button onclick="test2()" type="submit" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">정지</button>
-    <div>
+    <div class="m-5">
       <input type="number" id="start" name="end_time" style="border:none">
     </div>
   </form>

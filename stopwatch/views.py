@@ -14,6 +14,7 @@ def index(request):#경과시간
     #     start_time =time.time()
     #     print(start_time)
     return render(request, "stopwatch/index.html")
+
 @login_required
 def stop(request):
     # is_running = False#DB추가
