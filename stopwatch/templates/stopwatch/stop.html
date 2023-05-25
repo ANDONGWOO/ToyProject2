@@ -10,7 +10,7 @@
   </a> {% endcomment %}
   <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
     {% csrf_token %}
-    <button  type="submit" class="btn btn-primary border border-dark">정지</button>
+    <button  type="submit" class="btn btn-primary border border-dark" onclick="alerttest();">정지</button>
     <div class="m-5">
       <input type="number" id="start" name="end_time" style="border:none">
     </div>
@@ -33,8 +33,10 @@
     var start1 = new Date().getTime();
     document.getElementById("start").value=end_time;//변수 start에서 출력
     end_time++;
-    console.log(end_time)
   };
+  function alerttest(){
+    alert(end_time-1+"기록함");//오차 -1
+  }
   window.addEventListener('unload', function(event) {
     console.log(2)
     end = new Date().getTime();
