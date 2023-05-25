@@ -35,7 +35,11 @@
     end_time++;
   };
   function alerttest(){
-    alert(end_time-1+"기록함");//오차 -1
+    if (end_time-1==-1){
+      alert(0+"기록함");//0이면기록
+    }else{
+      alert(end_time-1+"기록함");//오차 -1
+    }
   }
   window.addEventListener('unload', function(event) {
     console.log(2)
