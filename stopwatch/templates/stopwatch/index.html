@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock css %}
 {% block body %}
   {% comment %} <a href="{% url "stopwatch:stop" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">시작</button>
   </a> {% endcomment %}
   <div style=" text-align: center";>
     <a href="{% url 'stopwatch:stop' %}">
-      <button type="button" id="test1" onclick="startInterval();" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">
+      <button type="button" id="test1" onclick="startInterval();" class="btn btn-primary border border-dark" >
         시작
       </button>
     </a>

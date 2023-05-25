@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static "css/stop.css" %}">
+{% endblock css %}
 {% block body %}
   {% comment %} <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
     <button type="button" class="btn btn-primary btn-lg">정지</button>
   </a> {% endcomment %}
   <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
     {% csrf_token %}
-    <button onclick="test2()" type="submit" class="btn btn-primary border border-dark" style="height:100px; width:100px; border-radius: 50%">정지</button>
+    <button  type="submit" class="btn btn-primary border border-dark">정지</button>
     <div class="m-5">
       <input type="number" id="start" name="end_time" style="border:none">
     </div>
@@ -30,7 +32,6 @@
   function test0(){//클릭시 함수실행
     var start1 = new Date().getTime();
     document.getElementById("start").value=end_time;//변수 start에서 출력
-    console.log(start1)
     end_time++;
     console.log(end_time)
   };
