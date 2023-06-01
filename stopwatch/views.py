@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
-
 @login_required
 def index(request):#경과시간
     return render(request, "stopwatch/index.html")
@@ -15,7 +13,9 @@ def stop(request):
     if request.method =="POST":
         form=testForm(request.POST)
         if form.is_valid():
-            form.save()
+            test=form.save(commit=False)
+            test.user = request.user#유저정보
+            test.save()#유저정보
         return redirect('stopwatch:index')
     else:
         form = testForm()
@@ -23,4 +23,5 @@ def stop(request):
         "form": form
     }
     return render(request, "stopwatch/stop.html",context)
+
 
