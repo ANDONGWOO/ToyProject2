@@ -15,6 +15,18 @@
       </button>
     </a>
   </div>
+  <!-- 공부여부 -->
+  <div class="opacity-100">
+    {% for i in test_1 %}
+    <p>{{i.username}}</p>
+    {% endfor %}
+  </div>
+  <div class="opacity-25">
+    {% for i in test_0 %}
+    <p>{{i.username}}</p>
+    {% endfor %}
+  </div>
+  <!-- 공부여부 -->
   <!-- 스톱워치 이동 -->
   <!-- 함수 두개 -->
   {% comment %} onclick="test0(); test3();" {% endcomment %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import testForm
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -10,7 +10,13 @@ def index(request):#경과시간
     user = request.user
     user.is_running=0#기본 값으로 변경
     user.save()
-    return render(request, "stopwatch/index.html")
+    test_1=get_user_model().objects.filter(is_running=1)
+    test_0=get_user_model().objects.filter(is_running=0)
+    context={
+        "test_1":test_1,
+        "test_0":test_0,
+    }
+    return render(request, "stopwatch/index.html",context)
 
 @login_required
 def stop(request):
@@ -18,6 +24,8 @@ def stop(request):
     user = request.user
     user.is_running=1#기본 값으로 변경
     user.save()
+    test_1=get_user_model().objects.filter(is_running=1)
+    test_0=get_user_model().objects.filter(is_running=0)
     if request.method =="POST":
         form=testForm(request.POST)
         if form.is_valid():
@@ -28,7 +36,9 @@ def stop(request):
     else:
         form = testForm()
     context={
-        "form": form
+        "form": form,
+        "test_1":test_1,
+        "test_0":test_0,
     }
     return render(request, "stopwatch/stop.html",context)
 
