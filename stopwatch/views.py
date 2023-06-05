@@ -10,11 +10,11 @@ def index(request):#경과시간
     user = request.user
     user.is_running=0#기본 값으로 변경
     user.save()
-    test_1=get_user_model().objects.filter(is_running=1)
-    test_0=get_user_model().objects.filter(is_running=0)
+    is_running_1=get_user_model().objects.filter(is_running=1)
+    is_running_0=get_user_model().objects.filter(is_running=0)
     context={
-        "test_1":test_1,
-        "test_0":test_0,
+        "test_1":is_running_1,
+        "is_running_0":is_running_0,
     }
     return render(request, "stopwatch/index.html",context)
 
@@ -24,8 +24,8 @@ def stop(request):
     user = request.user
     user.is_running=1#기본 값으로 변경
     user.save()
-    test_1=get_user_model().objects.filter(is_running=1)
-    test_0=get_user_model().objects.filter(is_running=0)
+    is_running_1=get_user_model().objects.filter(is_running=1)
+    is_running_0=get_user_model().objects.filter(is_running=0)
     if request.method =="POST":
         form=testForm(request.POST)
         if form.is_valid():
@@ -37,8 +37,8 @@ def stop(request):
         form = testForm()
     context={
         "form": form,
-        "test_1":test_1,
-        "test_0":test_0,
+        "is_running_1":is_running_1,
+        "is_running_0":is_running_0,
     }
     return render(request, "stopwatch/stop.html",context)
 
