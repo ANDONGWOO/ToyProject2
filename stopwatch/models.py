@@ -7,4 +7,4 @@ from django.contrib.auth import get_user_model
 class test(models.Model):
     end_time=models.IntegerField()
     user=models.ForeignKey(get_user_model(), on_delete=models.CASCADE)#유저 id
-    time=models.DateTimeField(auto_now_add=True)#저장 시간
+    time=models.DateField(auto_now_add=True)#저장 시간
