@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from .models import test
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-
+import datetime
 # Create your views here.
 
 @login_required
@@ -13,7 +13,7 @@ def index(request):#경과시간
     #오늘 누적
     today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
     my_objects = test.objects.all().filter(time=today_start, user=request.user)
-    total_sum = sum(i.end_time for i in my_objects)
+    total_sum = str(datetime.timedelta(seconds=sum(i.end_time for i in my_objects)))#오늘 누적 시간형식
     #오늘 누적
     user = request.user
     user.is_running=0#기본 값으로 변경
