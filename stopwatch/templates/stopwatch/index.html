@@ -2,56 +2,31 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static "css/index.css" %}">
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
 {% endblock css %}
 {% block body %}
-  {% comment %} <a href="{% url "stopwatch:stop" %}" class="position-absolute top-50 start-50 translate-middle">
-    <button type="button" class="btn btn-primary btn-lg">시작</button>
-  </a> {% endcomment %}
-  <div style=" text-align: center";>
+  <div style=" text-align: center">
     <a href="{% url 'stopwatch:stop' %}">
-      <button type="button" id="test1" onclick="startInterval();" class="btn btn-primary border border-dark" >
+      <button type="button" id="test1" onclick="startInterval();" class="btn btn-primary border border-dark">
         시작
       </button>
     </a>
   </div>
-  <!-- 공부여부 -->
+  <!-- 공부여부o -->
   <div class="opacity-100">
     {% for i in is_running_1 %}
-    <p>{{i.username}}</p>
+      <p>{{i.username}}</p>
     {% endfor %}
   </div>
+  <!-- 공부여부x -->
   <div class="opacity-25">
     {% for i in is_running_0 %}
-    <p>{{i.username}}</p>
+      <p>{{i.username}}</p>
     {% endfor %}
   </div>
-  <!-- 공부여부 -->
+  <!-- 누적시간 -->
   <div>
-    <p>오늘 누적시간: {{total_sum}}</p>
+    <p>오늘 누적시간:{{total_sum}}</p>
   </div>
-  <!-- 스톱워치 이동 -->
-  <!-- 함수 두개 -->
-  {% comment %} onclick="test0(); test3();" {% endcomment %}
 {% endblock %}
-{% block script %}
-{% comment %} <script>
-  startInterval()
-  function startInterval() {
-    console.log(1)
-    setInterval(test0, 1000);
-  }
-  function test0(){//클릭시 함수실행
-    console.log(0)
-    var start1 = new Date().getTime();
-    document.getElementById("start").innerText=start1;//변수 start에서 출력
-    console.log(start1)
-  };
-
-</script> {% endcomment %}
-{% endblock script %}
-<!-- 경과시간 기록 -->
-<!-- 시작버튼 -->
-
-
-
+{% block script %}{% endblock script %}

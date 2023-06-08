@@ -2,15 +2,12 @@
 {% load django_bootstrap5 %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static "css/stop.css" %}">
+  <link rel="stylesheet" href="{% static "css/stop.css" %}">
 {% endblock css %}
 {% block body %}
-  {% comment %} <a href="{% url "stopwatch:index" %}" class="position-absolute top-50 start-50 translate-middle">
-    <button type="button" class="btn btn-primary btn-lg">정지</button>
-  </a> {% endcomment %}
-  <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center";>
+  <form action="{% url 'stopwatch:stop' %}" method="POST" style=" text-align: center" ;=";">
     {% csrf_token %}
-    <button  type="submit" class="btn btn-primary border border-dark" onclick="alerttest();">정지</button>
+    <button type="submit" class="btn btn-primary border border-dark" onclick="alerttest();">정지</button>
     <div class="m-5">
       <input type="number" id="start" name="end_time" style="border:none">
     </div>
@@ -18,47 +15,40 @@
   <!-- 공부여부 -->
   <div class="opacity-100">
     {% for i in is_running_1 %}
-    <p>{{i.username}}</p>
+      <p>{{i.username}}</p>
     {% endfor %}
   </div>
   <div class="opacity-25">
     {% for i in is_running_0 %}
-    <p>{{i.username}}</p>
+      <p>{{i.username}}</p>
     {% endfor %}
   </div>
   <!-- 공부여부 -->
-  {% comment %} <div>
-    <span id="testM">00</span>
-    <span id="tests">00</span>
-    <span id="testm">00</span>
-  </div> {% endcomment %}
 {% endblock %}
 {% block script %}
-<script>
-  var start1;
-  var end_time=0;//경과시간
-  startInterval()
-  function startInterval() {
-    setInterval(test0, 1000);
-  }
-  function test0(){//클릭시 함수실행
-    var start1 = new Date().getTime();
-    document.getElementById("start").value=end_time;//변수 start에서 출력
-    end_time++;
-  };
-  function alerttest(){
-    if (end_time-1==-1){
-      alert(0+"기록함");//0이면기록
-    }else{
-      alert(end_time-1+"기록함");//오차 -1
+  <script>
+    var start1;
+    var end_time = 0; //경과시간
+    startInterval()
+
+    function startInterval() {
+      setInterval(test0, 1000);
     }
-  }
-  window.addEventListener('unload', function(event) {
-    console.log(2)
-    end = new Date().getTime();
-    end_time = end-start1;
-    console.log(start1)
-    console.log(end_time)
-  });
-</script>
+
+    function test0() { //클릭시 함수실행
+      var start1 = new Date().getTime();
+      document
+        .getElementById("start")
+        .value = end_time; //변수 start에서 출력
+      end_time++;
+    };
+
+    function alerttest() {
+      if (end_time - 1 == -1) {
+        alert(0 + "기록함"); //0이면기록
+      } else {
+        alert(end_time - 1 + "기록함"); //오차 -1
+      }
+    }
+  </script>
 {% endblock script %}
