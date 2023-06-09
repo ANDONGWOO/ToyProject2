@@ -30,7 +30,7 @@
 
 ## 기능정리
 
-[기능정리](https://github.com/ANDONGWOO/ToyProject2/기능정리.md).
+[https://github.com/ANDONGWOO/ToyProject2/기능정리.md](https://github.com/ANDONGWOO/ToyProject2/blob/master/%EA%B8%B0%EB%8A%A5%EC%A0%95%EB%A6%AC.md))
 
 ## 프로젝트의 기술적으로 어려웠던 경험
 
