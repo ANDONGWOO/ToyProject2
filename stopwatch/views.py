@@ -9,19 +9,18 @@ import datetime
 
 @login_required
 def index(request):#경과시간
-    print(0)
+    user = request.user
+    user.is_running=0#기본 값으로 변경
+    user.save()
     #오늘 누적
     today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
     my_objects = test.objects.all().filter(time=today_start, user=request.user)
     total_sum = str(datetime.timedelta(seconds=sum(i.end_time for i in my_objects)))#오늘 누적 시간형식
     #오늘 누적
-    user = request.user
-    user.is_running=0#기본 값으로 변경
-    user.save()
     is_running_1=get_user_model().objects.filter(is_running=1)
     is_running_0=get_user_model().objects.filter(is_running=0)
     context={
-        "test_1":is_running_1,
+        "is_running_1":is_running_1,
         "is_running_0":is_running_0,
         "my_objects":my_objects,
         "total_sum":total_sum,
@@ -30,7 +29,6 @@ def index(request):#경과시간
 
 @login_required
 def stop(request):
-    print(1)
     user = request.user
     user.is_running=1#기본 값으로 변경
     user.save()
